@@ -1,0 +1,37 @@
+pipeline {
+    agent any
+    
+    environment {
+        DOCKER_IMAGE = 'nodejs-boilerplate:latest'
+    }
+
+    stages {
+        stage('Clone Repository') {
+            steps {
+                echo "Starting Stage SCM Pull"
+                script {
+                    git branch: 'main', url: 'https://github.com/Ashwathshetty-tech/node_deployment.git'
+                }
+            }
+        }
+
+        stage('Build Docker Image') {
+            steps {
+                echo "Starting Stage Build Docker Image"
+                sh '/usr/local/bin/docker-compose build'
+            }
+        }
+
+        stage('Run Docker Image') {
+            steps {
+                sh '/usr/local/bin/docker-compose up -d'
+            }
+        }
+    }
+
+    post {
+        always {
+            sh '/usr/local/bin/docker-compose down'
+        }
+    }
+}

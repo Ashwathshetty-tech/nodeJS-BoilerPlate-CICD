@@ -1,0 +1,33 @@
+{
+  "name": "nodejs-boilerplate",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "lint": "./node_modules/eslint/bin/eslint.js ./ --quiet --cache --ignore-pattern .gitignore /testReport",
+    "lint:fix": "./node_modules/eslint/bin/eslint.js . --ext .js --fix"
+  },
+  "devDependencies": {
+    "eslint": "^4.11.0",
+    "eslint-config-airbnb-base": "^11.3.2",
+    "eslint-plugin-import": "^2.8.0"
+  },
+  "type": "module",
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "description": "",
+  "dependencies": {
+    "compression": "^1.8.0",
+    "dotenv": "^16.4.7",
+    "express": "^4.21.2",
+    "express-async-handler": "^1.2.0",
+    "express-rate-limit": "^7.5.0",
+    "helmet": "^8.0.0",
+    "mongoose": "^8.11.0",
+    "pg": "^8.13.3",
+    "redis": "^4.7.0",
+    "winston": "^3.17.0",
+    "winston-elasticsearch": "^0.19.0"
+  }
+}

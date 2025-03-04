@@ -1,0 +1,53 @@
+version: "2.1"
+
+services:
+  redis:
+    container_name: redis
+    image: redis
+    ports:
+      - "6379:6379"
+
+
+  postgres:
+    image: postgres:latest
+    container_name: postgres_db
+    environment:
+        POSTGRES_HOST_AUTH_METHOD: trust
+    #   POSTGRES_USER: myuser
+    #   POSTGRES_PASSWORD: mypassword
+    #   POSTGRES_DB: mydb
+    ports:
+      - "5432:5432"    
+
+  mongodb:
+    image: mongo:latest
+    container_name: mongo_db
+    # environment:
+    #     # POSTGRES_HOST_AUTH_METHOD: trust
+    # #   POSTGRES_USER: myuser
+    # #   POSTGRES_PASSWORD: mypassword
+    # #   POSTGRES_DB: mydb
+    ports:
+      - "27017:27017"        
+  
+  app:
+   build: .
+   container_name: nodejs-boilerplate
+   restart: always
+   depends_on:
+     - redis
+   environment:
+     - PORT=${PORT}
+     - REDIS_HOST=${REDIS_HOST}
+     - REDIS_PORT=${REDIS_PORT}
+     - REDIS_URL=${REDIS_URL}
+     - MONGO_URL=${MONGO_URL}
+     - POSTGRES_USER=${POSTGRES_USER}
+     - POSTGRES_HOST=${POSTGRES_HOST}
+     - POSTGRES_DB=${POSTGRES_DB}
+     - POSTGRES_PORT=${POSTGRES_PORT}
+     - NEW_RELIC_APP_NAME=nodejs-boilerplate
+     - NEW_RELIC_LICENSE_KEY=4dd64769450b22a52544c036e908b6dfFFFFNRAL
+     - NEW_RELIC_LOG_LEVEL=info
+   ports:
+     - "3006:5001"    
