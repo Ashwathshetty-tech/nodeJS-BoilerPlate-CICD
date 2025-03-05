@@ -10,7 +10,7 @@ pipeline {
             steps {
                 echo "Starting Stage SCM Pull"
                 script {
-                    git branch: 'main', url: 'https://github.com/Ashwathshetty-tech/node_deployment.git'
+                    git branch: 'main', url: 'https://github.com/Ashwathshetty-tech/nodeJS-BoilerPlate-CICD.git'
                 }
             }
         }
@@ -24,6 +24,7 @@ pipeline {
 
         stage('Run Docker Image') {
             steps {
+                echo "Starting Stage Run Docker Image"
                 sh '/usr/local/bin/docker-compose up -d'
             }
         }
