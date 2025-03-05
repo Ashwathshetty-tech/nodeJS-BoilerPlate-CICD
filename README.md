@@ -1,23 +1,51 @@
-🛠️ Node.js Boilerplate
-Overview
-This is a Node.js Boilerplate project with built-in configurations for:
+# 🚀  Node.js Boilerplate
+A production-ready Node.js Boilerplate with built-in support for Docker, Docker Compose, Jenkins CI/CD, MongoDB, PostgreSQL, Redis, and NewRelic Monitoring.
 
-Docker & Docker Compose
-Jenkins CI/CD Pipeline
-NewRelic Monitoring
-Redis Caching
-MongoDB for NoSQL Database
-PostgreSQL for Relational Database
+## Table of Contents
+- [Prerequisites](#prerequisites)
+- [Installation](#installation)
+- [Usage](#usage)
+- [API Endpoints](#api-endpoints)
+- [Folder Structure](#folder-structure)
+- [Environment Variables](#environment-variables)
+- [Technologies Used](#technologies-used)
+- [Contributing](#contributing)
+- [License](#license)
+- [Contact](#contact)
 
-Prerequisites
-Docker & Docker Compose
-Node.js v18+
-MongoDB
-PostgreSQL
-Redis
-Jenkins
-NewRelic Account (for monitoring)
+---
 
-🔥 Docker Setup
-Build and Run the App
+## Prerequisites
+List the required software and versions to run the project.
+
+- Node.js 18.x
+- Docker & Docker Compose
+- MongoDB
+- PostgreSQL
+- Redis
+- Jenkins
+
+---
+
+## Installation
+### Clone the Repository
+```bash
+git clone https://github.com/Ashwathshetty-tech/nodeJS-BoilerPlate-CICD.git
+cd repository
+
+```
+### 🐳 Docker Setup
+### Build and Run
 docker-compose up --build -d
+
+
+### Services Overview
+
+| Service    | Port   | Description       |
+|-----------|-------|------------------|
+| App       | 3000   | Node.js API      |
+| MongoDB   | 27017  | NoSQL Database   |
+| PostgreSQL| 5432   | Relational DB    |
+| Redis     | 6379   | Caching Service  |
+
+
