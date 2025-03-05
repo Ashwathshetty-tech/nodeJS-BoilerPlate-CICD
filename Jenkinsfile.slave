@@ -32,6 +32,7 @@ pipeline {
 
     post {
         always {
+            echo "Stopping Docker Image Run"
             sh '/usr/local/bin/docker-compose down'
         }
     }
